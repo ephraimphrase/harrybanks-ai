@@ -26,7 +26,7 @@ const Header = () => {
                 </div>
 
                 <a
-                    href="https://t.me/+LVEIxZbukL01YTJk"
+                    href="https://t.me/harrybanksai"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-telegram"

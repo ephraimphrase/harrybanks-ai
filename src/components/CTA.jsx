@@ -20,7 +20,7 @@ const CTA = () => {
                     </p>
 
                     <a
-                        href="https://t.me/+LVEIxZbukL01YTJk"
+                        href="https://t.me/harrybanksai"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
