@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const testimonials = [
@@ -15,33 +15,12 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-    const scrollRef = useRef(null);
-
-    useEffect(() => {
-        const el = scrollRef.current;
-        if (!el) return;
-
-        let animationId;
-        const scroll = () => {
-            if (el.scrollLeft >= el.scrollWidth / 2) {
-                el.scrollLeft = 0;
-            } else {
-                el.scrollLeft += 0.8; // Slightly slower than features
-            }
-            animationId = requestAnimationFrame(scroll);
-        };
-
-        animationId = requestAnimationFrame(scroll);
-
-        return () => cancelAnimationFrame(animationId);
-    }, []);
-
     // Duplicate for infinite scroll
     const duplicatedTestimonials = [...testimonials, ...testimonials];
 
     return (
-        <section style={{ padding: '100px 0', background: 'var(--color-surface)' }}>
-            <div className="container" style={{ overflow: 'hidden' }}>
+        <section style={{ padding: '100px 0', background: 'var(--color-surface)', overflow: 'hidden' }}>
+            <div className="container" style={{ maxWidth: '100%', padding: 0 }}>
                 <motion.h2
                     aria-label="What Our Global Community Says"
                     initial={{ opacity: 0 }}
@@ -53,18 +32,18 @@ const Testimonials = () => {
                 </motion.h2>
 
                 <div
-                    ref={scrollRef}
                     style={{
                         display: 'flex',
-                        overflowX: 'auto',
                         gap: '2rem',
-                        paddingBottom: '2rem',
-                        scrollbarWidth: 'none',
-                        msOverflowStyle: 'none'
+                        width: 'max-content',
+                        animation: 'scroll 60s linear infinite'
                     }}
                 >
                     <style>{`
-                        div::-webkit-scrollbar { display: none; }
+                        @keyframes scroll {
+                            0% { transform: translateX(0); }
+                            100% { transform: translateX(-50%); }
+                        }
                     `}</style>
                     {duplicatedTestimonials.map((t, i) => {
                         // Split flag and country name - assuming format like "🇧🇷 Brazil"
@@ -80,8 +59,8 @@ const Testimonials = () => {
                                     padding: '2rem',
                                     borderRadius: '12px',
                                     border: '1px solid rgba(255,255,255,0.03)',
-                                    minWidth: '350px',
-                                    flex: '0 0 auto',
+                                    width: '280px', // Shortened container
+                                    flexShrink: 0
                                 }}
                             >
                                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem', alignItems: 'flex-start' }}>

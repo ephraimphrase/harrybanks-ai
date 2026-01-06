@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { FaBuilding, FaChartLine, FaBolt, FaShieldAlt } from 'react-icons/fa';
 
@@ -26,33 +26,12 @@ const features = [
 ];
 
 const Features = () => {
-    const scrollRef = useRef(null);
-
-    useEffect(() => {
-        const el = scrollRef.current;
-        if (!el) return;
-
-        let animationId;
-        const scroll = () => {
-            if (el.scrollLeft >= el.scrollWidth / 2) {
-                el.scrollLeft = 0;
-            } else {
-                el.scrollLeft += 1; // Speed of scroll
-            }
-            animationId = requestAnimationFrame(scroll);
-        };
-
-        animationId = requestAnimationFrame(scroll);
-
-        return () => cancelAnimationFrame(animationId);
-    }, []);
-
-    // Duplicate features for infinite scroll effect
-    const duplicatedFeatures = [...features, ...features, ...features];
+    // Duplicate features for infinite scroll effect - using 3 sets to be safe on wide screens
+    const duplicatedFeatures = [...features, ...features, ...features, ...features];
 
     return (
-        <section style={{ padding: '100px 0' }}>
-            <div className="container" style={{ overflow: 'hidden' }}>
+        <section style={{ padding: '100px 0', overflow: 'hidden' }}>
+            <div className="container" style={{ maxWidth: '100%', padding: 0 }}>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -64,19 +43,18 @@ const Features = () => {
                 </motion.div>
 
                 <div
-                    ref={scrollRef}
                     style={{
                         display: 'flex',
-                        overflowX: 'auto', // Allow manual scroll interaction if grabbed, but hide bar
                         gap: '2rem',
-                        paddingBottom: '2rem',
-                        scrollbarWidth: 'none',
-                        msOverflowStyle: 'none',
-                        cursor: 'grab'
+                        width: 'max-content',
+                        animation: 'scrollFeatures 30s linear infinite'
                     }}
                 >
                     <style>{`
-                        div::-webkit-scrollbar { display: none; }
+                        @keyframes scrollFeatures {
+                            0% { transform: translateX(0); }
+                            100% { transform: translateX(-25%); } /* 4 sets, move 1/4 */
+                        }
                     `}</style>
                     {duplicatedFeatures.map((feature, index) => (
                         <div
@@ -86,8 +64,8 @@ const Features = () => {
                                 padding: '2.5rem',
                                 borderRadius: '16px',
                                 border: '1px solid rgba(255,255,255,0.05)',
-                                minWidth: '300px',
-                                flex: '0 0 auto',
+                                width: '300px',
+                                flexShrink: 0
                             }}
                         >
                             <div style={{
