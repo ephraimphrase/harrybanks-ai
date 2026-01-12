@@ -25,7 +25,7 @@ const Header = () => {
                     <span className="text-gold">HarryBanks</span> AI
                 </div>
 
-                <a
+                {/* <a
                     href="https://t.me/harrybanksai"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -45,7 +45,7 @@ const Header = () => {
                 >
                     <FaTelegramPlane size={18} />
                     <span>Join Telegram</span>
-                </a>
+                </a> */}
             </div>
         </motion.header>
     );

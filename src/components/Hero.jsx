@@ -26,12 +26,12 @@ const Hero = () => {
                             color: 'var(--color-primary)',
                             textTransform: 'uppercase',
                             letterSpacing: '2px',
-                            fontSize: '0.9rem',
+                            fontSize: '0.75rem',
                             fontWeight: '600',
                             marginBottom: '1rem'
                         }}
                     >
-                        The Future of Automated Wealth
+                        Join 65,000+ Traders Winning with Harrybanks AI
                     </motion.h2>
 
                     <motion.h1
@@ -39,14 +39,14 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
                         style={{
-                            fontSize: 'clamp(3rem, 6vw, 5rem)',
-                            fontWeight: '700',
-                            lineHeight: '1.1',
+                             fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                            fontWeight: '500',
+                            lineHeight: '1.5',
                             marginBottom: '1.5rem',
                             textShadow: '0 0 20px rgba(0,0,0,0.5)'
                         }}
                     >
-                        From the Floor of the London Stock Exchange to Your Smartphone
+                        Stop guessing and start growing. Over 65,000 everyday people are already using Harrybanks AI to generate daily income—even with zero prior trading experience.
                     </motion.h1>
 
                     <motion.p
@@ -54,7 +54,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6 }}
                         style={{
-                            fontSize: 'clamp(1.2rem, 2vw, 1.5rem)',
+                            fontSize: 'clamp(1.5rem, 1.5vw, 2.5rem)',
                             color: 'var(--color-text-muted)',
                             marginBottom: '3rem',
                             maxWidth: '700px',
@@ -62,8 +62,8 @@ const Hero = () => {
                             marginRight: 'auto'
                         }}
                     >
-                        Stop guessing. Start growing. <br />
-                        Join the world’s leading automated Forex signal community.
+                        If they can do it, you can too. 
+                        Our community is designed to help you leverage AI to target $300 – $3,000 weekly directly from your phone.
                     </motion.p>
 
                     <motion.div
@@ -81,16 +81,16 @@ const Hero = () => {
                                 gap: '0.8rem',
                                 background: 'var(--color-primary)',
                                 color: '#000',
-                                padding: '1rem 3rem',
+                                padding: '1rem 1.5rem',
                                 borderRadius: '50px',
-                                fontSize: '1.1rem',
+                                fontSize: '0.9rem',
                                 fontWeight: '700',
                                 textTransform: 'uppercase',
                                 boxShadow: '0 0 20px var(--color-primary-glow)'
                             }}
                         >
                             <FaTelegramPlane size={24} />
-                            Join Our telegram
+                            Join Our telegram Channel For Free
                         </a>
                     </motion.div>
                 </div>

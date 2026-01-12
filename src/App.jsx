@@ -13,10 +13,10 @@ function App() {
     <div className="app-container">
       <Header />
       <Hero />
-      <FounderMsg />
+      {/* <FounderMsg />
       <Features />
       <Testimonials />
-      <CTA />
+      <CTA /> */}
       <Footer />
     </div>
   );
