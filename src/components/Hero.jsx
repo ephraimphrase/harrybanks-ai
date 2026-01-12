@@ -72,7 +72,7 @@ const Hero = () => {
                         transition={{ delay: 0.8 }}
                     >
                         <a
-                            href="https://t.me/harrybanksai"
+                            href="tg://resolve?domain=harrybankssupport_bot"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
